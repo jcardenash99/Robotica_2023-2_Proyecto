@@ -10,6 +10,8 @@ Realizar el despacho de un pedido de 3 items organizados al azar en una repisa d
 que cualquier objeto podría estar en cualquier espacio.
 Para considerar varios tipos de geometría, el manipulador debe poder tomar cajas, tarros y tubos de crema de la
 repisa.
-## Desarrollo
-Para el desarrolo de la aplicación
+
+## DESARROLLO
+## Diseño de griper.
+Para el desarrollo de la aplicación iniciamos determinando las geometrías y dimensiones de los objetos que vamos a manipular, con base a esto y haciendo una revisión de los actuadores disponibles en el laboratorio definimos alternativas de solución al diseño del griper más adecuado para la manipulación de los objetos.
 
