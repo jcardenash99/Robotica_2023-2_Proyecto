@@ -13,7 +13,8 @@ Para considerar varios tipos de geometría, el manipulador debe poder tomar caja
 repisa.
 
 ### Repisa
-Será un estante metálico de 4 secciones 
+Será un estante metálico de 4 secciones de una altura de 1,16 metros y 0,6 metros de ancho. La altura de las secciones es de 35 centimetros y en estas se colocarán es su respectvo orden los elementos con los que se van a trabajar
+![](Captura%20estante.PNG)
 
 ## DESARROLLO
 ## Diseño de griper.
@@ -49,4 +50,7 @@ Finalmente, al ensamblar el gripper se colocan unos recubrimientos de caucho en 
 [Gripper final].![Gripper 2](https://github.com/jcardenash99/Robotica_2023-2_Proyecto/assets/143892609/1fe344f2-9c2b-4cdb-878e-6054e6e24031)
 
 
+## MONTAJE
 
+Al tener ensamblado el griper, este se coplará al manipulador ABB de la siguiente manera para aplicar las rutinas de movimiento 
+![](griper%20montado.jpg)
