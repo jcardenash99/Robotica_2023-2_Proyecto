@@ -13,7 +13,8 @@ Para considerar varios tipos de geometría, el manipulador debe poder tomar caja
 repisa.
 
 ### Repisa
-Será un estante metálico de 4 secciones de una altura de 1,16 metros y 0,6 metros de ancho. La altura de las secciones es de 35 centimetros y en estas se colocarán es su respectvo orden los elementos con los que se van a trabajar
+Será un estante metálico de 4 secciones de una altura de 1,16 metros y 0,6 metros de ancho. La altura de las secciones es de 35 centimetros y en estas se colocarán es su respectvo orden los elementos con los que se van a trabajar.
+
 ![](Captura%20estante.PNG)
 
 ## DESARROLLO
