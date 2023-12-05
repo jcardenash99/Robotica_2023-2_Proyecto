@@ -15,7 +15,7 @@ repisa.
 ## Diseño de griper.
 Para el desarrollo de la aplicación iniciamos determinando las geometrías y dimensiones de los objetos que vamos a manipular, con base a esto y haciendo una revisión de los actuadores disponibles en el laboratorio definimos alternativas de solución al diseño del griper más adecuado para la manipulación de los objetos.
 
-[].![Cilindro neumatico](https://github.com/jcardenash99/Robotica_2023-2_Proyecto/assets/143892609/96a0d4c6-70ed-4c84-aaaa-deb1d579d2e2)
+[Cilindro neumático].![Cilindro neumatico](https://github.com/jcardenash99/Robotica_2023-2_Proyecto/assets/143892609/96a0d4c6-70ed-4c84-aaaa-deb1d579d2e2)
 
 
 Identificando los actuadores disponibles encontramos un cilindro neumático de doble efecto el cual nos permite hacer un desplazamiento lineal por ende pensamos en hacerlo parte del sistema de cierre del griper.
