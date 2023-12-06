@@ -50,8 +50,10 @@ Finalmente, al ensamblar el gripper se colocan unos recubrimientos de caucho en 
 
 [Gripper final].![Gripper 2](https://github.com/jcardenash99/Robotica_2023-2_Proyecto/assets/143892609/1fe344f2-9c2b-4cdb-878e-6054e6e24031)
 
-
+## DIAGRAMA DE FLUJO
 ## MONTAJE
 
-Al tener ensamblado el griper, este se coplará al manipulador ABB de la siguiente manera para aplicar las rutinas de movimiento 
+Al tener ensamblado el griper, este se coplará al manipulador ABB de la siguiente manera para aplicar las rutinas de movimiento.
+
 ![](griper%20montado.jpg)
+
