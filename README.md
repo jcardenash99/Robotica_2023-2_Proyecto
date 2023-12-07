@@ -50,7 +50,6 @@ Finalmente, al ensamblar el gripper se colocan unos recubrimientos de caucho en 
 
 [Gripper final].![Gripper 2](https://github.com/jcardenash99/Robotica_2023-2_Proyecto/assets/143892609/1fe344f2-9c2b-4cdb-878e-6054e6e24031)
 
-## DIAGRAMA DE FLUJO
 ## MONTAJE
 
 Al tener ensamblado el griper, este se coplará al manipulador ABB de la siguiente manera para aplicar las rutinas de movimiento.
@@ -58,6 +57,17 @@ Al tener ensamblado el griper, este se coplará al manipulador ABB de la siguien
 ![](griper%20montado.jpg)
 
 ## Diseño de trayectorias y Rutinas
+### Diagramas de flujo
+A continuación se puede encontrar el diseño lógico del funcionamiento del código donde para empezar debe realizar el posicionamiento en home con la función Homming(), calibración de herramienta con la función Solta() y establecer la posición de trabajo donde se evitan singularidades, Posición_inicial().
+Comienza la iteración que desactiva la orden de finalización siempre y cuanto se encuentre en FALSO. Esta permitirá realizar la selección entre los 3 objetos mediante las etiquetas A1, A2 y A3, preguntando si cada una fué la que se seleccionó. Una vez determine que cualquiera de las etiquetas de objeto fué la seleccionada, procede a llamar la rutina correspondiente a coger el objeto (Coger_cilindro(), Coger_prisma() o Coge_cil_acostado()).
+
+![Diagrama 1](https://github.com/jcardenash99/Robotica_2023-2_Proyecto/assets/63479570/3e51be62-97df-499a-9a34-3776c1f15c36)
+
+Una vez se tenga seleccionado el objeto se llamará la función 'agarrar;' y preguntará si hay espacio en la banda para colocar el objeto desde la estantería. Si hay espacio, se procede a realizar la rutina DejarEnBanda() y poteriormente mediante la función 'soltar;', dejar el objeto en la banda. Si no hay espacio, únicamente se soltará el objeto con la función 'soltar;' en el espacio en la estanteria donde se encontraba
+
+![Diagrama 2](https://github.com/jcardenash99/Robotica_2023-2_Proyecto/assets/63479570/7e63c629-39ed-4699-a59f-0898c104f6e8)
+
+
 ### Trayectorias
 Para el diseño de las trayectorias se partio del modelado de la estanteria, y se ubico en una posicion frente al robot, esta estanteria se convirtio en work object sobre el cual se crearian los primeros puntos los cuales dependen del work object la posicion final del work object frente al mundo es de: [500,-300,540] esta distancia en mm, los puntos iniciales del los objetos respecto al work object fueron 
 
