@@ -352,4 +352,7 @@ ENDMODULE
 ```
 ## Diseño de la interfaz de usuario
 
+## Video Presentación
+El video puede encontrarse a continuación ya que hubo restricción de subida directa en el repositorio.
 
+ENLACE VIDEO: https://www.youtube.com/watch?v=4hn36XYPoaw
