@@ -160,7 +160,8 @@ MODULE Module1
     PERS bool pinza_cerrada;
     PERS bool reiniciar_valores;
     !***********************************************************
-    !
+    !main
+!***********************************************************
     PROC main()
 
         C1:=FALSE;
