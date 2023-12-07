@@ -113,10 +113,17 @@ Estas rutinas constan de encender y apagar la bobinas de forma ordenada, el conc
 
 Las rutinas de homming y posicionamiento incial que como su nombre lo indica son rutinas que seencargan especificamente de llevar el robot a la posicion de home o a la posicion inicial que es una configuracion de las juntas con la intencion de salir de la sigularidad inicial.
 
+La de Posicion es una rutina en la que se pregunta si las variables C1 a la C3 estan llenas, si lo estan sueta el objeto, si estan vacias lleva a el objeto a la posicion en banda que se encuentra vacia.
+
+La rutina comprobar espacio es una rutina auxiliar a la de posicion en la cual si los espacios en banda estan llenos suelta el objeto en la posicion que se tomo, en caso contrario si hay espacio vacio no hace nada y salta a la rutina posicion para que lleve el objeto al espacio vacio.
+
+Finalmente en la rutina Main tenemos las configuraciones inciales las cuales inician un valor a las variales persistentes booleanas, luego se asegura que el gripper se encuentre abierto con la rutina soltar, despues envia al robot a Home por si el robot se encuentra en alguna posicion ajena al home y a la posicion incial, depues de estar en home se envia a la posicio inicial que rompe con la singularidad, posteriror entra en el bucle principal while que mientras la variable finalizar asociada a este se encuentre desactivada el while se mantiene y mantiene al robot preguntando que objeto desa tomar.
+
+Acontinuacion se uestra el codigo en RAPID del Modulo1 en donde se encuentra en general todo, desde las rutinas las constantes de poscion lineal y de juntas y las variables booleanas.
 
 
 
-```RAPID
+```MOD
 MODULE Module1
         PERS tooldata Gripper1TCP:=[TRUE,[[11.5,-9.419,142.496],[0.707106781,0,-0.707106781,0]],[0.347,[-5.649,5.049,83.176],[1,0,0,0],0,0,0]];
     TASK PERS wobjdata Estanteria:=[FALSE,TRUE,"",[[0,0,0],[1,0,0,0]],[[500,-300,540],[1,0,0,0]]];
@@ -351,5 +358,52 @@ MODULE Module1
 ENDMODULE
 ```
 ## Diseño de la interfaz de usuario
+En el diseño de la interfaz de usuarion primero vamos a hablar de las variables booleanas persistentes en el codigo en rapid ya que estas son las que la interfaz edita para que el robot realice las rutinas deseadas.
+
+```MOD
+! Variables de rutina de tomar objeto
+	PERS bool A1;
+	PERS bool A2;
+	PERS bool A3;
+! Variables de espacio en banda
+	PERS bool C1;
+	PERS bool C2;
+	PERS bool C3;
+! Variables de led indicador de objeto agarrado
+	PERS bool ledA1;
+	PERS bool ledA2;
+	PERS bool ledA3;
+! Variables auxiliares para finalizar el ciclo while, para reiniciar las variables por defecto y la del led que indica si la pinza esta cerrada
+	PERS bool finalizar;
+	PERS bool pinza_cerrada;
+	PERS bool reiniciar_valores;
+```
+
+La interfaz diseñada es una interfaz simple de una solo ventana donde se encuentran los botones y los leds indicadores, esta interfaz se muestra acontinuacion:
+
+![Interfaz simple](https://github.com/jcardenash99/Robotica_2023-2_Proyecto/assets/61796945/f5d5ee6f-3db3-4652-b1da-9a39383fd288)
+
+Como podeos observar en la interfaz teneos 5 botones los cuales son:
+
+- Tomar posicion 1: asociado a la variable A1 la cual ejecuta la rutina de agarrar cilindro
+- Tomar posicion 2: asociado a la variable A2 la cual ejecuta la rutina de agarrar prisma
+- Tomar posicion 3: asociado a la variable A3 la cual ejecuta la rutina de agarrar cilindro recostado
+- Reset Memory: el cual se asocia a la variable reiniciar valores la cual pone el valor por defecto a las variables booleanas
+- Salir: el cual es el boton asociado a la variable finalizar la cual rompe el ciclo while y permite al codigo continuar y finalizar con normalidad.
+
+En la ventana tambien se observan 7 leds los cuales son:
+
+- Leds 1-3 ubicados al lado del boton de Tomar Poscion correspondiente, estos leds leen las variables LedA1 a LedA3, estas variables se activan durante la ejecucion de la rutina de tomar objeto y se apaga cuando el robot regrese a la posicion inical al ginal de la rutina.
+- Led 1-3 en la seccion de espacios llenos, estos leds estan ligados a las variables C1- C3, las cuales se activan cuando el robot fue a llevar un objeto a esa posicion asociada a la banda, estos leds se mantienen activos hasta que se reinicien sus valores con el boton reset o hasta que se reinicie el programa del robot.
+- Led pinza cerrada este led se encuentra asociado a la variable pinza cerrada y lee le valor de esta variable, esta variable es un poco mas compleja dado a que la pinza tiene 4 opciones posibles una por cada convinacion de bobina:
+  	* DO_01 =1 y DO_02 =0: gipper cerrado.
+  	* DO_01 =0 y DO_02 =1: gipper abierto.
+  	* DO_01 =1 y DO_02 =1: imposible determinar depende de varios factores asociados a la configuracion de la valvula de 2 vias.
+  	* DO_01 =0 y DO_02 =0: imposible determinar depende de la ultima configuracion de la valvula de 2 vias ya sea que el gripper estuviese abierto o cerrado
+Como normalmente nos vemos en el ultimo caso lo que se hizo con a variable pinza cerrada fue activarla por defecto desactivarla cuando la rutina soltar se ejecute y volverla a activar cuando la rutina agarrar se ejecute, con esto y en base a la disposicion del codigo se pudede garantizar que mientras se ejecuten los movimientos desde la interfaz este led indique si el gripper se encuentre abierto o cerrado conforme a la ultmima instruccion de abierto o cerrado enviada.
 
 
+## Video Presentación
+El video puede encontrarse a continuación ya que hubo restricción de subida directa en el repositorio.
+
+ENLACE VIDEO: https://www.youtube.com/watch?v=4hn36XYPoaw
